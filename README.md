@@ -54,7 +54,7 @@ go-chat-app/
    git clone https://github.com/yourusername/go-chat-app.git
    cd go-chat-app
     ```
-    
+
 2. Install dependencies:
 
    ```bash
@@ -125,4 +125,4 @@ MIT License — free to use and modify.
 
 Made with ❤️ by **Ritik Singh**
 
-[GitHub](https://github.com/yourusername) | [LinkedIn](https://linkedin.com/in/yourprofile)
+[GitHub](https://github.com/iamritikbhardwaj) | [LinkedIn](https://www.linkedin.com/in/ritik-singh-10b333227/)
