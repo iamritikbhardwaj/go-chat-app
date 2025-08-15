@@ -1,16 +1,36 @@
-let socket = new WebSocket("ws://" + window.location.host + "/ws");
+let username = prompt("Enter your name:");
+let socket;
 
-socket.onmessage = function (event) {
-    console.log(event.data);
-    document.querySelector('#messages');
-    
-    let li = document.createElement('li');
-    li.textContent = event.data;
-    document.querySelector('#messages').appendChild(li);
-}
+document.addEventListener("DOMContentLoaded", function () {
+  socket = new WebSocket("ws://" + window.location.host + "/ws");
 
-function sendMessage() {
-    let input = document.getElementById("#message");
-    socket.send(input.value)
-    input.value = '';
+  socket.onmessage = function (event) {
+    const msg = JSON.parse(event.data);
+    const li = document.createElement("li");
+
+    // Distinguish between self and others
+    if (msg.user === username) {
+      li.classList.add("self");
+    } else {
+      li.classList.add("other");
+    }
+
+    li.innerHTML = `<strong>${msg.user}:</strong> ${msg.text}`;
+    document.getElementById("messages").appendChild(li);
+    scrollToBottom();
+  };
+
+  window.sendMessage = function () {
+    let input = document.getElementById("message");
+    let message = input.value.trim();
+    if (message) {
+      socket.send(JSON.stringify({ user: username, text: message }));
+      input.value = '';
+    }
+  };
+});
+
+function scrollToBottom() {
+  const messages = document.getElementById("messages");
+  messages.scrollTop = messages.scrollHeight;
 }

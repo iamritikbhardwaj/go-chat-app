@@ -9,10 +9,15 @@ import (
 	"github.com/gorilla/websocket"
 )
 
+type Message struct {
+	User string `json:"user"`
+	Text string `json:"text"`
+}
+
 var (
 	upgrader  = websocket.Upgrader{}
 	clients   = make(map[*websocket.Conn]bool)
-	broadcast = make(chan string)
+	broadcast = make(chan Message)
 	mu        = sync.Mutex{}
 )
 
@@ -37,8 +42,9 @@ func handleConnections(w http.ResponseWriter, r *http.Request) {
 	mu.Unlock()
 
 	for {
-		var message string
+		var message Message
 		err := ws.ReadJSON(&message)
+		log.Println(message)
 		if err != nil {
 			log.Println(err)
 			mu.Lock()
