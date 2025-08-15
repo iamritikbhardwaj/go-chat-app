@@ -24,7 +24,7 @@ A real-time chat application built using **Go (Golang)**, **WebSockets**, and **
 
 ## 🗂️ Project Structure
 
-```
+```bash
 
 go-chat-app/
 ├── main.go                 # Go WebSocket server
@@ -35,7 +35,7 @@ go-chat-app/
 ├── go.mod
 └── go.sum
 
-````
+```
 
 ---
 
@@ -49,10 +49,11 @@ go-chat-app/
 ### 🔧 Setup
 
 1. Clone the repository:
+   
    ```bash
    git clone https://github.com/yourusername/go-chat-app.git
    cd go-chat-app
-````
+   ```
 
 2. Install dependencies:
 
@@ -68,7 +69,7 @@ go-chat-app/
 
 4. Open in browser:
 
-   ```
+   ```bash
    http://localhost:8008
    ```
 
