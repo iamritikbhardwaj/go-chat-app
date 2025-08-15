@@ -101,7 +101,7 @@ go-chat-app/
 
 ## 📌 Example Screenshot
 
-![Preveiw](/go-chat-app/image.png)
+![Preveiw](image.png)
 
 ---
 
